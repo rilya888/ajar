@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Base plist: Xcode still generates the rest (GENERATE_INFOPLIST_FILE = YES).
+	     Only Sparkle's keys live here, because INFOPLIST_KEY_* build settings map
+	     a fixed whitelist of Apple keys and silently drop everything else. -->
+	<key>SUFeedURL</key>
+	<string>https://quietunit.com/ajar/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>E14fWzNiA4pszm2U/KfPM3EePAf12JDzISmJ2+l+trk=</string>
+	<key>SUEnableAutomaticChecks</key>
+	<true/>
+</dict>
+</plist>
