@@ -9,10 +9,11 @@
 - [x] Лицензия репозитория выбрана — **PolyForm Noncommercial 1.0.0**, файл `LICENSE` в корне.
 - [x] `README.md` в корне — витрина открытого репо (питч, статус, сборка, требования, «почему открыто»).
 - [x] **Block 12 (код):** `tier` → `.pro` принудительно (`AppState.proUnlockedForFreeStage`); триал, пейволл, счётчик апселла убраны из UI; код `Ajar/Licensing/` и `PaywallView.swift` остались в дереве; тесты чистой логики оставлены. 129 тестов зелёные.
-- [ ] **Сделать репозиторий публичным** (руки владельца). Перед этим: пройтись `git log`/`grep` на предмет секретов и внутренних доменов — по коду секретов нет (лицензионные ключи и Paddle-секреты живут вне репо), но проверить глазами. Добавить GitHub topics (`macos`, `menubar`, `swift`, `lid-angle`, `swiftui`), описание, ссылку на `quietunit.com/ajar`.
-- [ ] **Залить бесплатный DMG** — `Tools/release.sh`, затем `Ajar-1.0.dmg` + `appcast.xml` в `quietunit.com/ajar/` (см. «Релиз 1.0» ниже — конвейер тот же, оплата из него не участвует).
-- [ ] **Лендинг под free-first:** снять с `quietunit.com/ajar` всё про цену/покупку/триал до Этапа 2; кнопку «Buy» заменить на «Download». Строку про merchant of record и ссылки `/terms`, `/refund` тоже убрать со страницы Ajar до Этапа 2 (сами страницы пусть лежат).
+- [x] **Репозиторий публичный** — 2026-09-01, `https://github.com/rilya888/ajar`, topics `macos menubar swift swiftui lid-angle macos-app iohidmanager`. История перед публикацией схлопнута в один коммит (в старой были Paddle ID и партнёрская почта в диффах); полная история — локально в теге `pre-public-squash`. Операционные детали Paddle вынесены в `docs/private/paddle-etap2.md` (в `.gitignore`).
+- [x] **Бесплатный DMG залит** — 2026-09-01. `Tools/release.sh` (агент починил 2 бага в нём: SIGPIPE в grep, `set -e` вокруг `osascript`), нотаризация `.app` и DMG — Accepted+stapled, `spctl` → `Notarized Developer ID`. `Ajar-1.0.dmg` (1369921 B) + `appcast.xml` (edSignature на месте) лежат в `QuietUnit/site/public/ajar/`, задеплоены. `curl -I` → 200 на оба; SHA-256 live == local. Фон окна DMG не лёг (нет Automation→Finder в неинтерактиве) — DMG валиден, косметика.
+- [x] **Лендинг под free-first** — 2026-09-01, задеплоен на `quietunit.com/ajar`. Цена/покупка/триал сняты, `Buy` → `Download` на `/ajar/Ajar-1.0.dmg`, `/ajar/buy` → редирект на `/ajar`, merchant of record и ссылки `/terms` `/refund` убраны из тела (страницы и футер целы), добавлена кнопка `Source` на репо + строка про PolyForm. Коммиты QuietUnit `ffa8d0e`, `bb91da1`.
 - [ ] **GTM** (раздел внизу файла) — Show HN, r/macapps и прочее делаются на Этапе 1: бесплатная версия + открытый репо это ровно то, что там просят.
+- [ ] **Ручные проверки релиза** (руки владельца, раздел «Релиз 1.0» ниже): бэкап приватного ключа Sparkle, Gatekeeper на чистом пользователе (скачать DMG браузером), реальное обновление Sparkle с предыдущей версии, полный smoke по `docs/release/checklist.md`.
 
 ## Этап 2 — Pro (позже, когда налажена оплата)
 
